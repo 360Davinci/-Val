@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Valentine 💖</title>
+  <title>Valentine ❤️</title>
+
   <style>
     body {
       text-align: center;
       font-family: Arial, sans-serif;
       margin-top: 80px;
       overflow: hidden;
+      background-color: #fff;
     }
+
     h1 {
       font-size: 28px;
     }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 30px;
+    }
+
     button {
       font-size: 18px;
       padding: 12px 25px;
@@ -19,16 +28,20 @@
       cursor: pointer;
       position: relative;
     }
+
     #noBtn {
       position: absolute;
     }
-    #gif {
+
+    #loveContent {
       display: none;
       margin-top: 30px;
     }
+
     img {
-      width: 260px;
+      width: 280px;
       border-radius: 15px;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -37,26 +50,31 @@
 
   <h1>Jumoke Gospel Rihanna<br>Will you be my Valentine? ❤️</h1>
 
-  <button onclick="showLove()">Yes 💘</button>
-  <button id="noBtn" onmouseover="moveNo()">No 💔</button>
+  <div id="buttons">
+    <button onclick="showLove()">Yes 💘</button>
+    <button id="noBtn" onmouseover="moveNo()">No 💔</button>
+  </div>
 
-  <div id="gif">
-    <h2>Knew you’d say yes 😌💖</h2>
-    <img src="https://media.giphy.com/media/3o6ZsYm5zGz5b6P4Fa/giphy.gif">
+  <div id="loveContent">
+    <h2>Told you I’m crazy about you ❤️</h2>
+    <img 
+      src="https://media.tenor.com/9Qq8v6G0C9EAAAAC/rihanna-asap-rocky.gif"
+      alt="ASAP Rocky and Rihanna kissing">
   </div>
 
   <script>
     function moveNo() {
       const noBtn = document.getElementById("noBtn");
-      const x = Math.random() * (window.innerWidth - 100);
-      const y = Math.random() * (window.innerHeight - 100);
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 120);
+
       noBtn.style.left = x + "px";
       noBtn.style.top = y + "px";
     }
 
     function showLove() {
-      document.getElementById("noBtn").style.display = "none";
-      document.getElementById("gif").style.display = "block";
+      document.getElementById("buttons").style.display = "none";
+      document.getElementById("loveContent").style.display = "block";
     }
   </script>
 
