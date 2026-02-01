@@ -45,7 +45,7 @@
     }
 
     #noBtn {
-      position: relative; /* IMPORTANT FIX */
+      position: relative;
       background: #cccccc;
     }
 
@@ -96,25 +96,32 @@
 
 <body>
 
+  <!-- MAIN PAGE -->
   <h1 id="mainText">
     Rihanna mi òwón, Love of my fucking life<br>
     Will you be my Valentine? 💚
   </h1>
 
+  <!-- BUTTONS -->
   <div id="buttons">
     <button id="yesBtn" onclick="showLove()">Yes 💘</button>
     <button id="noBtn" onmouseenter="moveNo()" ontouchstart="moveNo()">No 💔</button>
   </div>
 
+  <!-- AFTER YES -->
   <div id="loveContent">
     <h2>Told you I’m crazy about you 💚</h2>
+
     <img src="rihanna.jpg" alt="My Rihanna">
+
+    <p style="margin-top:20px; font-size:18px; color:white;">
+      Now come tell me in person 😌
+    </p>
   </div>
 
   <script>
     function moveNo() {
       const noBtn = document.getElementById("noBtn");
-
       noBtn.style.position = "absolute";
       noBtn.style.left =
         Math.random() * (window.innerWidth - 150) + "px";
@@ -128,11 +135,6 @@
       document.getElementById("mainText").style.display = "none";
       document.getElementById("loveContent").style.display = "block";
       startHearts();
-
-      setTimeout(() => {
-        window.location.href =
-          "https://wa.me/2348163483318?text=I%20clicked%20YES%20💚";
-      }, 2000);
     }
 
     function startHearts() {
