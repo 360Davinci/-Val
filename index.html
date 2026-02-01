@@ -5,14 +5,13 @@
     Rihanna mi òwón, Love of my fucking life – Will you be my Valentine?
   </title>
 
-  <!-- MAKES IT BIG AND CLEAN ON PHONE -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       text-align: center;
       font-family: Arial, sans-serif;
-      margin-top: 70px;
+      margin-top: 60px;
       overflow: hidden;
       background: white;
       transition: background 1s ease;
@@ -46,7 +45,7 @@
     }
 
     #noBtn {
-      position: absolute;
+      position: relative; /* IMPORTANT FIX */
       background: #cccccc;
     }
 
@@ -97,33 +96,30 @@
 
 <body>
 
-  <!-- MAIN PAGE TEXT -->
   <h1 id="mainText">
     Rihanna mi òwón, Love of my fucking life<br>
     Will you be my Valentine? 💚
   </h1>
 
-  <!-- YES / NO BUTTONS -->
   <div id="buttons">
     <button id="yesBtn" onclick="showLove()">Yes 💘</button>
-    <button id="noBtn" onmouseover="moveNo()">No 💔</button>
+    <button id="noBtn" onmouseenter="moveNo()" ontouchstart="moveNo()">No 💔</button>
   </div>
 
-  <!-- CONTENT AFTER YES -->
   <div id="loveContent">
     <h2>Told you I’m crazy about you 💚</h2>
-
-    <!-- IMAGE APPEARS ONLY AFTER YES -->
     <img src="rihanna.jpg" alt="My Rihanna">
   </div>
 
   <script>
     function moveNo() {
       const noBtn = document.getElementById("noBtn");
+
+      noBtn.style.position = "absolute";
       noBtn.style.left =
-        Math.random() * (window.innerWidth - 140) + "px";
+        Math.random() * (window.innerWidth - 150) + "px";
       noBtn.style.top =
-        Math.random() * (window.innerHeight - 140) + "px";
+        Math.random() * (window.innerHeight - 150) + "px";
     }
 
     function showLove() {
@@ -133,7 +129,26 @@
       document.getElementById("loveContent").style.display = "block";
       startHearts();
 
-      // OPEN WHATSAPP SO YOU KNOW SHE CLICKED YES
       setTimeout(() => {
-        window.open(
-          "https://wa.me/2348163483318?text=I%20clicked%2
+        window.location.href =
+          "https://wa.me/2348163483318?text=I%20clicked%20YES%20💚";
+      }, 2000);
+    }
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💚";
+        heart.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
