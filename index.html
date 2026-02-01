@@ -5,6 +5,9 @@
     Rihanna mi òwón, Love of my fucking life – Will you be my Valentine?
   </title>
 
+  <!-- MAKES IT BIG AND CLEAN ON PHONE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       text-align: center;
@@ -16,21 +19,23 @@
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 32px;
       line-height: 1.4;
+      padding: 0 15px;
     }
 
     h2 {
-      font-size: 26px;
+      font-size: 28px;
       margin-top: 25px;
       color: white;
+      padding: 0 15px;
     }
 
     button {
-      font-size: 18px;
-      padding: 14px 30px;
-      margin: 12px;
-      border-radius: 30px;
+      font-size: 20px;
+      padding: 16px 36px;
+      margin: 14px;
+      border-radius: 40px;
       border: none;
       cursor: pointer;
     }
@@ -51,9 +56,10 @@
     }
 
     img {
-      width: 320px;
-      border-radius: 20px;
-      margin-top: 20px;
+      width: 90%;
+      max-width: 340px;
+      border-radius: 24px;
+      margin-top: 25px;
       animation: fadeIn 1.5s ease;
     }
 
@@ -71,7 +77,7 @@
     .heart {
       position: fixed;
       bottom: -20px;
-      font-size: 24px;
+      font-size: 26px;
       color: forestgreen;
       animation: floatUp 5s linear infinite;
     }
@@ -91,13 +97,13 @@
 
 <body>
 
-  <!-- MAIN TEXT -->
+  <!-- MAIN PAGE TEXT -->
   <h1 id="mainText">
     Rihanna mi òwón, Love of my fucking life<br>
     Will you be my Valentine? 💚
   </h1>
 
-  <!-- BUTTONS -->
+  <!-- YES / NO BUTTONS -->
   <div id="buttons">
     <button id="yesBtn" onclick="showLove()">Yes 💘</button>
     <button id="noBtn" onmouseover="moveNo()">No 💔</button>
@@ -115,9 +121,9 @@
     function moveNo() {
       const noBtn = document.getElementById("noBtn");
       noBtn.style.left =
-        Math.random() * (window.innerWidth - 120) + "px";
+        Math.random() * (window.innerWidth - 140) + "px";
       noBtn.style.top =
-        Math.random() * (window.innerHeight - 120) + "px";
+        Math.random() * (window.innerHeight - 140) + "px";
     }
 
     function showLove() {
@@ -126,22 +132,8 @@
       document.getElementById("mainText").style.display = "none";
       document.getElementById("loveContent").style.display = "block";
       startHearts();
-    }
 
-    function startHearts() {
-      setInterval(() => {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerHTML = "💚";
-        heart.style.left = Math.random() * 100 + "vw";
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-          heart.remove();
-        }, 5000);
-      }, 300);
-    }
-  </script>
-
-</body>
-</html>
+      // OPEN WHATSAPP SO YOU KNOW SHE CLICKED YES
+      setTimeout(() => {
+        window.open(
+          "https://wa.me/2348163483318?text=I%20clicked%2
