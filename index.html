@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rihanna mi owon, love of my fucking life</title>
+  <title>
+    Rihanna mi òwón, Love of my fucking life – Will you be my Valentine?
+  </title>
 
   <style>
     body {
       text-align: center;
       font-family: Arial, sans-serif;
-      margin-top: 80px;
+      margin-top: 70px;
       overflow: hidden;
-      background: #ffffff;
+      background: white;
+      transition: background 1s ease;
     }
 
     h1 {
-      font-size: 30px;
+      font-size: 28px;
+      line-height: 1.4;
     }
 
     h2 {
       font-size: 26px;
       margin-top: 25px;
+      color: white;
     }
 
     button {
       font-size: 18px;
       padding: 14px 30px;
       margin: 12px;
-      cursor: pointer;
       border-radius: 30px;
       border: none;
+      cursor: pointer;
     }
 
     #yesBtn {
@@ -37,7 +42,7 @@
 
     #noBtn {
       position: absolute;
-      background: #ccc;
+      background: #cccccc;
     }
 
     #loveContent {
@@ -46,15 +51,27 @@
     }
 
     img {
-      width: 300px;
+      width: 320px;
       border-radius: 20px;
       margin-top: 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     .heart {
       position: fixed;
       bottom: -20px;
-      font-size: 22px;
+      font-size: 24px;
       color: forestgreen;
       animation: floatUp 5s linear infinite;
     }
@@ -74,43 +91,39 @@
 
 <body>
 
-  <h1>
-    Rihanna,<br>
-    will you be my Valentine? 💚
+  <!-- MAIN TEXT -->
+  <h1 id="mainText">
+    Rihanna mi òwón, Love of my fucking life<br>
+    Will you be my Valentine? 💚
   </h1>
 
+  <!-- BUTTONS -->
   <div id="buttons">
     <button id="yesBtn" onclick="showLove()">Yes 💘</button>
     <button id="noBtn" onmouseover="moveNo()">No 💔</button>
   </div>
 
+  <!-- CONTENT AFTER YES -->
   <div id="loveContent">
-    <h2>Rihanna mi owon 💚<br>Love of my fucking life</h2>
+    <h2>Told you I’m crazy about you 💚</h2>
 
-    <!-- THIS IS THE PICTURE -->
+    <!-- IMAGE APPEARS ONLY AFTER YES -->
     <img src="rihanna.jpg" alt="My Rihanna">
-
-    <!-- THIS IS THE SONG -->
-    <p style="margin-top: 20px;">
-      <a 
-        href="https://open.spotify.com/track/0WQiDwKJclirSYG9v5tayI"
-        target="_blank"
-        style="font-size:18px; text-decoration:none;"
-      >
-        ▶️ Play our song
-      </a>
-    </p>
   </div>
 
   <script>
     function moveNo() {
       const noBtn = document.getElementById("noBtn");
-      noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
-      noBtn.style.top = Math.random() * (window.innerHeight - 120) + "px";
+      noBtn.style.left =
+        Math.random() * (window.innerWidth - 120) + "px";
+      noBtn.style.top =
+        Math.random() * (window.innerHeight - 120) + "px";
     }
 
     function showLove() {
+      document.body.style.background = "forestgreen";
       document.getElementById("buttons").style.display = "none";
+      document.getElementById("mainText").style.display = "none";
       document.getElementById("loveContent").style.display = "block";
       startHearts();
     }
